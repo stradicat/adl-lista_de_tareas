@@ -5,12 +5,13 @@ plugins {
 
 android {
     namespace = "dev.dmayr.listadetareas"
-    compileSdk = 36
+    //noinspection GradleDependency
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "dev.dmayr.listadetareas"
         minSdk = 23
-        targetSdk = 35
+        targetSdk = 36
         versionCode = 1
         versionName = "1.0"
 
