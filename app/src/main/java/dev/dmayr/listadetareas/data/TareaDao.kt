@@ -25,5 +25,5 @@ interface TareaDao {
     suspend fun eliminarTodasLasTareas()
 
     @Query("SELECT * from lista_de_tareas ORDER BY id ASC")
-    fun mostrarTareas(): LiveData<Tarea>
+    fun mostrarTareas(): LiveData<List<Tarea>>
 }
