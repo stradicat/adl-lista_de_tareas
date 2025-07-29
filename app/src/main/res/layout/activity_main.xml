@@ -1,26 +1,132 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <!--    test data-->
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/my_background"
         tools:context=".MainActivity">
 
         <TextView
+            android:id="@+id/titleListaDeTareas"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lexend_bold"
+            android:text="@string/tv_lista_de_tareas"
+            android:textColor="@color/base00"
+            android:textSize="32sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/descripcionTarea"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Descripción de la tarea"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toStartOf="@+id/btnAgregarTarea"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titleListaDeTareas"
+            tools:ignore="HardcodedText" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnAgregarTarea"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/my_secondary"
+            android:clickable="true"
+            android:focusable="true"
+            app:fabCustomSize="32dp"
+            app:flow_horizontalAlign="center"
+            app:flow_verticalAlign="center"
+            app:layout_constraintBottom_toBottomOf="@+id/descripcionTarea"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/descripcionTarea"
+            app:maxImageSize="32dp"
+            app:srcCompat="@drawable/add_button"
+            app:tint="@color/base2"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvTitleTareasPendientes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/tv_tit_tareas_pendientes"
+            app:layout_constraintStart_toStartOf="@id/descripcionTarea"
+            app:layout_constraintTop_toBottomOf="@+id/descripcionTarea" />
+
+        <TextView
+            android:id="@+id/tvTareasPendientes"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:hint="0"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTitleTareasPendientes"
+            app:layout_constraintStart_toEndOf="@+id/tvTitleTareasPendientes"
+            app:layout_constraintTop_toTopOf="@+id/tvTitleTareasPendientes"
+            tools:ignore="HardcodedText" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTareas"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toTopOf="@id/btnBorrarTodasLasTareas"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitleTareasPendientes" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btnBorrarTodasLasTareas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="@color/red"
+            android:clickable="true"
+            android:focusable="true"
+            app:fabCustomSize="64dp"
+            app:flow_horizontalAlign="center"
+            app:flow_verticalAlign="center"
+            app:layout_constraintBottom_toTopOf="@+id/tvBorrarTodasLasTareas"
+            app:layout_constraintEnd_toStartOf="@+id/btnAgregarTarea"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvTareas"
+            app:maxImageSize="64dp"
+            app:srcCompat="@drawable/remove_button"
+            app:tint="@color/base2"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/tvBorrarTodasLasTareas"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/lexend"
+            android:text="@string/tv_borrar_tareas"
+            android:textAlignment="center"
+            android:textColor="@color/base00"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/btnBorrarTodasLasTareas"
+            app:layout_constraintStart_toStartOf="@+id/btnBorrarTodasLasTareas" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

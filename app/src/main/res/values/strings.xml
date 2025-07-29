@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Lista de Tareas</string>
+    <string name="tv_agregar_tarea">AGREGAR TAREA</string>
+    <string name="tv_borrar_tareas">BORRAR\n TODAS LAS\n TAREAS</string>
+    <string name="tv_lista_de_tareas">Lista de Tareas</string>
+    <string name="tv_tit_tareas_pendientes">Tareas Pendientes:</string>
 </resources>
