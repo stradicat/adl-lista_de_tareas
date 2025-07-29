@@ -48,8 +48,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
             android:backgroundTint="@color/my_secondary"
             android:clickable="true"
+            android:contentDescription="Botón para agregar tareas"
             android:focusable="true"
             app:fabCustomSize="32dp"
             app:flow_horizontalAlign="center"
@@ -60,7 +62,22 @@
             app:maxImageSize="32dp"
             app:srcCompat="@drawable/add_button"
             app:tint="@color/base2"
-            tools:ignore="ContentDescription" />
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="32dp"
+            android:fontFamily="@font/lexend"
+            android:text="AGREGAR\n TAREA"
+            android:textAlignment="center"
+            android:textColor="@color/base00"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/btnAgregarTarea"
+            app:layout_constraintStart_toStartOf="@+id/btnAgregarTarea"
+            app:layout_constraintTop_toBottomOf="@+id/btnAgregarTarea"
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvTitleTareasPendientes"
@@ -100,6 +117,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/red"
             android:clickable="true"
+            android:contentDescription="Botón para borrar todas las tareas de la lista"
             android:focusable="true"
             app:fabCustomSize="64dp"
             app:flow_horizontalAlign="center"
@@ -108,11 +126,10 @@
             app:layout_constraintEnd_toStartOf="@+id/btnAgregarTarea"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/rvTareas"
             app:maxImageSize="64dp"
             app:srcCompat="@drawable/remove_button"
             app:tint="@color/base2"
-            tools:ignore="ContentDescription" />
+            tools:ignore="HardcodedText" />
 
         <TextView
             android:id="@+id/tvBorrarTodasLasTareas"
