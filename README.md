@@ -33,8 +33,7 @@ app/src/main/res/layout/
 └── item_tarea.xml
 ```
 
-Retos Adicionales
-
+## Retos Adicionales
 - [x] Ordenar tareas por fecha de creación
 - [ ] ~~Filtrar tareas (mostrar solo pendientes/completadas)~~
 - [ ] ~~Editar tareas existentes~~
