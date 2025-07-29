@@ -7,13 +7,16 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.databinding.DataBindingUtil
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.LinearLayoutManager
 import dev.dmayr.listadetareas.adapter.TareasAdapter
 import dev.dmayr.listadetareas.databinding.ActivityMainBinding
 import dev.dmayr.listadetareas.model.Tarea
+import dev.dmayr.listadetareas.utils.SwipeToDeleteCallback
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var adapter: TareasAdapter
+    private lateinit var tareasAdapter: TareasAdapter
     private val listaDeTareas: MutableList<Tarea> = mutableListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,13 +40,35 @@ class MainActivity : AppCompatActivity() {
         val rvTareas = binding.rvTareas
         val tvTareasPendientes = binding.tvTareasPendientes
 
-        adapter = TareasAdapter(listaDeTareas) {
+        tareasAdapter = TareasAdapter(listaDeTareas) {
             updatecount(tvTareasPendientes)
+        }
+        val handleElementSwipes = SwipeToDeleteCallback { pos ->
+            tareasAdapter.borrarTarea(pos)
+            updatecount(tvTareasPendientes)
+        }
+        rvTareas.layoutManager = LinearLayoutManager(this)
+        rvTareas.adapter = tareasAdapter
+
+        ItemTouchHelper(handleElementSwipes).attachToRecyclerView(rvTareas)
+
+        btnAgregarTarea.setOnClickListener {
+            val texto = descripcionTarea.text.toString().trim()
+            if (texto.isNotEmpty()) {
+                val nuevaTarea = Tarea(System.currentTimeMillis(), texto)
+                tareasAdapter.agregarTarea(nuevaTarea)
+                descripcionTarea.text.clear()
+                updatecount(tvTareasPendientes)
+            }
+        }
+
+        btnBorrarTodasLasTareas.setOnClickListener {
+            tareasAdapter.borrarTodasLasTareas()
         }
     }
 
     private fun updatecount(tareasPendientes: TextView) {
-        val pendientes: String = adapter.getTareas().count { !it.isComplete }.toString()
+        val pendientes: String = tareasAdapter.getTareas().count { !it.isComplete }.toString()
         tareasPendientes.text = pendientes
     }
 }
