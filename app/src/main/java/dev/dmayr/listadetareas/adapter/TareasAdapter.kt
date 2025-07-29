@@ -12,7 +12,6 @@ class TareasAdapter(
 ) :
     RecyclerView.Adapter<TareasAdapter.TareasViewHolder>() {
     private lateinit var binding: ItemTareaBinding
-//    private lateinit var listaDeTareas: MutableList<Tarea>
 
     inner class TareasViewHolder(binding: ItemTareaBinding) :
         RecyclerView.ViewHolder(binding.root) {
@@ -53,7 +52,11 @@ class TareasAdapter(
     }
 
     fun borrarTodasLasTareas() {
-        listaDeTareas.removeAll(listaDeTareas)
+        if (listaDeTareas.isNotEmpty()) {
+            val listSize = listaDeTareas.size
+            listaDeTareas.clear()
+            notifyItemRangeRemoved(0, listSize)
+        }
     }
 
     fun agregarTarea(tarea: Tarea) {
