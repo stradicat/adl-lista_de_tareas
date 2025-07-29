@@ -64,6 +64,7 @@ class MainActivity : AppCompatActivity() {
 
         btnBorrarTodasLasTareas.setOnClickListener {
             tareasAdapter.borrarTodasLasTareas()
+            updatecount(tvTareasPendientes)
         }
     }
 
