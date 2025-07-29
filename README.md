@@ -36,6 +36,6 @@ app/src/main/res/layout/
 Retos Adicionales
 
 - [x] Ordenar tareas por fecha de creación
-- [] ~~Filtrar tareas (mostrar solo pendientes/completadas)~~
-- [] ~~Editar tareas existentes~~
+- [ ] ~~Filtrar tareas (mostrar solo pendientes/completadas)~~
+- [ ] ~~Editar tareas existentes~~
 - [x] Persistir datos usando SharedPreferences
