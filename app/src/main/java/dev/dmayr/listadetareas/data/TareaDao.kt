@@ -11,7 +11,6 @@ import dev.dmayr.listadetareas.model.Tarea
 
 @Dao
 interface TareaDao {
-
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun agregarTarea(tarea: Tarea)
 

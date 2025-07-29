@@ -8,7 +8,6 @@ import dev.dmayr.listadetareas.model.Tarea
 
 @Database([Tarea::class], version = 1, exportSchema = false)
 abstract class TareaBBDD : RoomDatabase() {
-
     abstract fun tareaDao(): TareaDao
 
     companion object {

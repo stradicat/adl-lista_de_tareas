@@ -5,7 +5,6 @@ import dev.dmayr.listadetareas.data.TareaDao
 import dev.dmayr.listadetareas.model.Tarea
 
 class TareaRepositorio(private val tareaDao: TareaDao) {
-
     val mostrarTareas: LiveData<List<Tarea>> = tareaDao.mostrarTareas()
 
     suspend fun modificarTarea(tarea: Tarea) {
