@@ -10,7 +10,7 @@ import kotlinx.parcelize.Parcelize
 data class Tarea(
     @PrimaryKey(autoGenerate = true)
     val id: Long,
-    val etiqueta: Int,
-    val importancia: Byte, // para 1..5 es más que suficiente
-    val descripcionTarea: String
+    val descripcionTarea: String,
+    val fechaDeCreacion: Long = System.currentTimeMillis(),
+    var isComplete: Boolean = false
 ) : Parcelable
